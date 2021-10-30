@@ -1,4 +1,4 @@
-package ro.student.ugal.onionpisi;
+package ro.ugal.student.onionpisi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

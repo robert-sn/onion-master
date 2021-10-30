@@ -1,4 +1,4 @@
-package ro.student.ugal.onionpisi;
+package ro.ugal.student.onionpisi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
