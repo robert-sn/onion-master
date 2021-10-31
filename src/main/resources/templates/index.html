@@ -14,16 +14,16 @@
 <div class="container">
   <!-- Header section-->
 
-  <div th:replace="containers/header :: header"></div>
-  <div th:replace="containers/nav-bar :: nav-bar"></div>
+  <div th:replace="section/header :: header"></div>
+  <div th:replace="section/nav-bar :: nav-bar"></div>
 
   <!--  -->
   <div class="row">
     <div class="col">
       <div class="row" style="height: 700px;">
         <!--Side menu-->
-        <div class="col-4" style="background-color: bisque">
-          <h1 class="text-center m-5 p-2">SideMenu</h1>
+        <div class="col-4">
+          <div th:replace="section/side-menu :: side-menu"></div>
         </div>
         <!-- Main body-->
         <div class="col-8" style="background-color: cadetblue">
