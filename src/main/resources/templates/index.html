@@ -1,18 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
   <meta charset="UTF-8">
   <title>Onion</title>
 </head>
 <body>
-<div class="container align-middle">
+<div class="container">
   <!-- Header section-->
-  <div class="row text-center" style="height: 150px; background-color: aqua">
+
+  <div class="row" >
     <div class="col">
-      <h1 class="text-center m-5 p-2">Header!</h1>
+      <div class="def-header-size">
+        <div class="row justify-content-between">
+
+          <!-- logo -->
+          <div class="col-4 p-0">
+            <div class="def-logo-size" >
+              <img src="/img/logo.png" alt="logo" height="150">
+            </div>
+
+          </div>
+
+          <div class="col-4 p-0">
+            <div>
+              <div class="row">
+                <div class="col-5 text-right">
+                  <div class="fix-font-size">
+                    <i class="fa fa-shopping-cart"></i>
+                  </div>
+                </div>
+                <div class="col-2 p-0 text-center">
+                  <div class="def-vert-line">
+                    <div class="line"></div>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="fix-font-size text-left">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 
@@ -33,5 +71,10 @@
   </div>
 </div>
 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
