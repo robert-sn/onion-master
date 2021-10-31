@@ -39,3 +39,37 @@
     box-shadow: 3px 3px 8px gray;
 
 }
+
+.def-card-img {
+    width: 150px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+
+.def-card-body {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.def-card-body .def-card-name {
+    font-size: 15px;
+    display: block;
+}
+
+.def-card-body .def-card-price {
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+}
+
+.def-card-body .def-card-add-cart {
+    font-size: 15px;
+    display: block;
+}
+.def-card-width {
+    width: 200px;
+    margin: 10px 0px;
+    padding: 5px;
+}
