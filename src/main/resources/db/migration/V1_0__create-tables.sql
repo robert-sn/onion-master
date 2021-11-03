@@ -40,3 +40,24 @@ CREATE TABLE product_category (
     FOREIGN KEY (category_id) REFERENCES category (id),
     FOREIGN KEY (product_final_id) REFERENCES product_final (id)
 );
+
+CREATE TABLE user (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    username varchar(500) DEFAULT NULL,
+    password varchar(500) DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE user_role (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    name varchar(500) DEFAULT NULL,
+    description varchar(500) DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE user_user_role (
+    user_id int(11) NOT NULL AUTO_INCREMENT,
+    user_role_id varchar(500) DEFAULT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (id),
+    FOREIGN KEY (user_role_id) REFERENCES user_role (id)
+);

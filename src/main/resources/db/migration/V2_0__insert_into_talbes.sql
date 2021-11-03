@@ -40,3 +40,7 @@ INSERT INTO `product_category` (category_id, product_final_id) VALUES
 (3, 9),
 (3, 10);
 
+INSERT INTO `user_role` (id, name, description) VALUES
+(1,'customer', 'Has limited access'),
+(2,'administrator', 'Has full access');
+
