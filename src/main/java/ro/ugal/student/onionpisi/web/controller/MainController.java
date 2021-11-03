@@ -11,9 +11,9 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping(path = "/login")
-    public String getLoginPage(){
-        return "login";
+    @GetMapping(path = "/register")
+    public String getRegisterPage(){
+        return "register";
     }
 
 }
