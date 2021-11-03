@@ -31,10 +31,15 @@
                 </div>
                 <div class="col-5">
                   <div class="fix-font-size text-left">
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <a href="#" data-toggle="modal" data-target="#authUser">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                    </a>
                   </div>
                 </div>
-              </div>
+                <!-- Modal -->
+                <div class="modal fade" id="authUser" tabindex="-1" role="dialog" aria-labelledby="authUserLabel" aria-hidden="true">
+                  <div th:replace="form/login :: login"> </div>
+                </div>
             </div>
           </div>
 
