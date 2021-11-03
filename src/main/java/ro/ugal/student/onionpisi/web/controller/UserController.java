@@ -16,7 +16,18 @@ public class UserController {
     @PostMapping(path = "/user/login")
     public String userAuthenticate(String username, String password) {
 
-        System.out.println("After login" + username + " | " + password);
+        System.out.println("User logged in!");
+
+        return "redirect:/";
+    }
+
+    @PostMapping(path = "/user/register")
+    public String userRegister(String username, String password, String rePassword) {
+
+        if(!password.equals(rePassword)){
+            System.out.println("Password doesn't mach!");
+            return "redirect:/register";
+        }
 
         boolean isSaved = iUserService.saveUser(username, password);
         if (isSaved) {
