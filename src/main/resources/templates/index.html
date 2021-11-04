@@ -14,20 +14,25 @@
 <div class="container-flex">
   <!-- Header section-->
 
-  <div th:replace="section/header :: header"></div>
-  <div th:replace="section/nav-bar :: nav-bar"></div>
+  <div class="row m-1">
+    <div class="col" th:include="section/header :: header" ></div>
+  </div>
+  <div class="row m-1">
+    <div class="col" th:include="section/nav-bar :: nav-bar"></div>
+  </div>
+
 
   <!--  -->
-  <div class="row">
+  <div class="row m-1">
     <div class="col">
       <div class="row">
         <!--Side menu-->
         <div class="col-4">
-          <div th:replace="section/side-menu :: side-menu"></div>
+          <div th:include="section/side-menu :: side-menu"></div>
         </div>
         <!-- Main body-->
         <div class="col-8">
-          <div th:replace="section/product :: product"></div>
+          <div th:include="section/product :: product"></div>
         </div>
       </div>
     </div>

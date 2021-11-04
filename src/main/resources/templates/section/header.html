@@ -3,51 +3,55 @@
 <body>
 <div th:fragment="header">
 
-  <div class="row" >
+  <div class="row">
     <div class="col">
       <div class="def-header-size">
         <div class="row justify-content-between">
 
           <!-- logo -->
           <div class="col-4 p-0">
-            <div class="def-logo-size" >
+            <div class="def-logo-size">
               <img src="/img/logo.png" alt="logo" height="150">
             </div>
 
           </div>
 
-          <div class="col-4 p-0">
+          <div class="col-2 p-0">
             <div>
-              <div class="row">
-                <div class="col-5 text-right">
+              <div class="row justify-content-end">
+                <!-- cart -->
+                <div class="col-4 text-right">
                   <div class="fix-font-size">
                     <i class="fa fa-shopping-cart"></i>
                   </div>
                 </div>
-                <div class="col-2 p-0 text-center">
+                <div class="col-1 p-0 text-center">
                   <div class="def-vert-line">
                     <div class="line"></div>
                   </div>
                 </div>
-                <div class="col-5">
+                <!-- user -->
+                <div class="col-4">
                   <div class="fix-font-size text-left">
-                    <a href="#" data-toggle="modal" data-target="#authUser">
+                    <a style="color: inherit;" href="#" data-toggle="modal" data-target="#authUser">
                       <i class="fa fa-user" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="authUser" tabindex="-1" role="dialog" aria-labelledby="authUserLabel" aria-hidden="true">
-                  <div th:replace="form/authenticate :: login"> </div>
+                <div class="modal fade" id="authUser" tabindex="-1" role="dialog" aria-labelledby="authUserLabel"
+                     aria-hidden="true">
+                  <div th:replace="form/authenticate :: login"></div>
                 </div>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
 
 </body>
