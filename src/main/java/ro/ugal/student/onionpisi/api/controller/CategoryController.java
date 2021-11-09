@@ -19,6 +19,6 @@ public class CategoryController {
 
     @GetMapping(path = "/main")
     public ResponseEntity findAllMainCategory() {
-        return ResponseEntity.ok(categoryService.findAllMainCategory());
+        return ResponseEntity.ok(categoryService.findAllCategories());
     }
 }
