@@ -15,7 +15,7 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<CategoryDto> findAllMainCategory() {
+    public List<CategoryDto> findAllCategories() {
         return CategoryDto.toDto(categoryRepository.findAllByCategoryIdIsNull());
     }
 

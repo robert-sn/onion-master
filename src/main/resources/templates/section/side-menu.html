@@ -6,6 +6,25 @@
   <div class="row">
     <div class="col">
       <div class="def-category-section">
+        <div th:each="category : ${categories}"  class="row justify-content-between">
+          <div class="col-10">
+            <span th:text="${category.name}">Tv - Audio - Video</span>
+          </div>
+          <div class="col-2">
+            <div class="ml-auto">
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:fragment="side-menu-old">
+  <div class="row">
+    <div class="col">
+      <div class="def-category-section">
         <div class="row justify-content-between">
           <div class="col-10">
             <span>Tv - Audio - Video</span>
