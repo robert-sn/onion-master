@@ -11,28 +11,32 @@
   <title>Onion</title>
 </head>
 <body>
-<div class="container-flex">
-  <!-- Header section-->
-
-  <div class="row m-1">
-    <div class="col" th:include="section/header :: header" ></div>
-  </div>
-  <div class="row m-1">
-    <div class="col" th:include="section/nav-bar :: nav-bar"></div>
-  </div>
-
-
-  <!--  -->
-  <div class="row m-1">
+<div class="container-fluid">
+  <div class="row m-0">
     <div class="col">
+      <!-- Header section-->
+
       <div class="row">
-        <!--Side menu-->
-        <div class="col-4">
-          <div th:include="section/side-menu :: side-menu"></div>
-        </div>
-        <!-- Main body-->
-        <div class="col-8">
-          <div th:include="section/product :: product"></div>
+        <div class="col" th:include="section/header :: header" ></div>
+      </div>
+      <div class="row">
+        <div class="col" th:include="section/nav-bar :: nav-bar"></div>
+      </div>
+
+
+      <!--  -->
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <!--Side menu-->
+            <div class="col-4 p-0" style="margin-left: -9px;">
+              <div th:include="section/side-menu :: side-menu"></div>
+            </div>
+            <!-- Main body-->
+            <div class="col-8">
+              <div th:include="section/product :: product"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

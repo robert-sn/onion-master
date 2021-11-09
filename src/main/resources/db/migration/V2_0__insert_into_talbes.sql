@@ -23,22 +23,48 @@ INSERT INTO `product_final_price`(id, vat_id, price_no_vat, product_final_id, pr
 (5,3502,5.50,5,0.00,now(), true);
 
 INSERT INTO `category` (id, name, category_id) VALUES
-(1,'Drinks',null),
-(2,'Soft-Drinks',1),
-(3,'Coffee',1),
-(4,'Cocktail',1);
+(10,'TV - Audio - Video',null),
+(12,'TV',10),
+(13,'Audio',10),
+(14,'Video',10),
+(20,'Laptop - Desktop - IT - Birotica',null),
+(21,'Laptop',20),
+(22,'Desktop',20),
+(23,'IT',20),
+(24,'Birotica',20),
+(30,'Telefoane - Tablete',null),
+(31,'Telefoane',30),
+(32,'Tablete',30),
+(40,'Electrocasnice mari',null),
+(50,'Electrocasnice mici - Vesela',null),
+(51,'Electrocasnice mici',50),
+(52,'Vesela',50),
+(60,'Cosmetice - Sanatate - Beauty',null),
+(61,'Cosmetice',60),
+(62,'Sanatate',60),
+(63,'Beauty',60),
+(70,'Incalzire - Racire - Purificare aer',null),
+(71,'Incalzire',70),
+(72,'Racire',70),
+(73,'Purificare aer',70),
+(80,'Curatenie - Intretinere casa', null),
+(81,'Curatenie - Intretinere casa', 80),
+(82,'Curatenie - Intretinere casa', 80);
 
-INSERT INTO `product_category` (category_id, product_final_id) VALUES
-(2, 1),
-(2, 2),
-(2, 3),
-(2, 4),
-(2, 5),
-(3, 6),
-(3, 7),
-(3, 8),
-(3, 9),
-(3, 10);
+
+
+
+-- INSERT INTO `product_category` (category_id, product_final_id) VALUES
+-- (2, 1),
+-- (2, 2),
+-- (2, 3),
+-- (2, 4),
+-- (2, 5),
+-- (3, 6),
+-- (3, 7),
+-- (3, 8),
+-- (3, 9),
+-- (3, 10);
 
 INSERT INTO `user_role` (id, name, description) VALUES
 (1,'customer', 'Has limited access'),

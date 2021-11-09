@@ -1,9 +1,9 @@
 package ro.ugal.student.onionpisi.entity.service;
 
 import org.springframework.context.annotation.Configuration;
+import ro.ugal.student.onionpisi.entity.dto.ProductFinalDto;
 import ro.ugal.student.onionpisi.entity.repository.IProductFinalPriceRepository;
 import ro.ugal.student.onionpisi.entity.repository.IProductFinalRepository;
-import ro.ugal.student.onionpisi.model.ProductFinalDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,9 +19,9 @@ public class ProductFinalService {
         this.productFinalPriceRepository = productFinalPriceRepository;
     }
 
-    public List<ProductFinalDTO> findAll() {
+    public List<ProductFinalDto> findAll() {
         return productFinalPriceRepository.findAll().stream()
-                .map(ProductFinalDTO::fromEntityToDTO)
+                .map(ProductFinalDto::toDto)
                 .collect(Collectors.toList());
     }
 
