@@ -6,7 +6,6 @@ import ro.ugal.student.onionpisi.entity.repository.IProductFinalPriceRepository;
 import ro.ugal.student.onionpisi.entity.repository.IProductFinalRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Configuration
 public class ProductFinalService {
@@ -20,9 +19,7 @@ public class ProductFinalService {
     }
 
     public List<ProductFinalDto> findAll() {
-        return productFinalPriceRepository.findAll().stream()
-                .map(ProductFinalDto::toDto)
-                .collect(Collectors.toList());
+        return ProductFinalDto.toDto(productFinalRepository.findAll());
     }
 
 }
