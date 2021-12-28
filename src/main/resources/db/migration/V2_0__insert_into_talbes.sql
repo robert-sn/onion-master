@@ -17,6 +17,20 @@ INSERT INTO `category` (id, name, category_id) VALUES
 (31,'Telefoane',30),
 (32,'Tablete',30),
 (40,'Electrocasnice mari',null),
+(41,'Masini de spalalt - Uscatoare',40),
+(40411,'Masini de spalalt',41),
+(40412,'Uscatoare',41),
+(42,'Aparate de gatit',40),
+(40421,'Plite - Cuptoare incorporabile',42),
+(404211,'Plite',40421),
+(404212,'Cuptoare incorporabile',40421),
+(40422,'Aragazuri',42),
+(40423,'Hote',42),
+(43,'Masini de spalat vase',40),
+(44,'Aparate frigorifice',40),
+(40441,'Combine frigorifice',44),
+(40442,'Frigidere',44),
+(40443,'Congelatoare',44),
 (50,'Electrocasnice mici - Vesela',null),
 (51,'Electrocasnice mici',50),
 (52,'Vesela',50),
@@ -29,8 +43,8 @@ INSERT INTO `category` (id, name, category_id) VALUES
 (72,'Racire',70),
 (73,'Purificare aer',70),
 (80,'Curatenie - Intretinere casa', null),
-(81,'Curatenie - Intretinere casa', 80),
-(82,'Curatenie - Intretinere casa', 80);
+(81,'Curatenie', 80),
+(82,'Intretinere casa', 80);
 
 INSERT INTO `product_final` (id,name, description_long) VALUES
 (552,'Sony Turntable - PSLX350H','Sony Turntable - PSLX350H Belt Drive System 33-13 and 45 RPM Speeds Servo Speed Control Supplied Moving Magnet Phono Cartridge Bonded Diamond Stylus Static Balance Tonearm Pitch Control'),
@@ -53,16 +67,55 @@ INSERT INTO `product_final` (id,name, description_long) VALUES
 (9546,'Frigidaire 24 White Built-In Dishwasher - FDB130WH','Frigidaire 24 FDB130RGS White Built-In Dishwasher - FDB130WH Convection Drying System QuietSound Sound Insulation Package 2 Wash Levels Adjustable Rinse Aid Dispenser Self Cleaning Filter White Finish'),
 (9646,'Cuisinart Cordless Electric Kettle - KUA17','Cuisinart Cordless Electric Kettle - KUA17 1-34 Quart Capacity Automatic Shut-Off Indicator Light Splash Guard Spout Cord Storage In Base Chrome Finish');
 
+
 -- INSERT INTO `product_final` (id,name, description_short, description_long) VALUES
 -- (10,'Irish', '1 shot of coffee with 20ml of Irish and cream on top', null);
 --
 -- INSERT INTO `product_final_price`(id, vat_id, price_no_vat, product_final_id, price_final, creation_date, active) VALUES
 -- (5,3502,5.50,5,0.00,now(), true);
 
--- INSERT INTO `product_category` (category_id, product_final_id) VALUES
--- (3, 10);
-
 INSERT INTO `user_role` (id, name, description) VALUES
 (1,'customer', 'Has limited access'),
 (2,'administrator', 'Has full access');
 
+INSERT INTO `product_category` (product_final_id, category_id) VALUES
+(552,13),
+(580,63),
+(4696,40),
+(5644,14),
+(6284,13),
+(6493,14),
+(6726,52),
+(6742,51),
+(7195,13),
+(7783,31),
+(7936,31),
+(8060,31),
+(8552,13),
+(9071,13),
+(9312,13),
+(9314,13),
+(9355,51),
+(9546,40442),
+(9646,51);
+
+ INSERT INTO `product_final_price`(product_final_id, price_final, creation_date, active) VALUES
+(552,8888.88,now(), true),
+(580,8888.88,now(), true),
+(4696,8888.88,now(), true),
+(5644,8888.88,now(), true),
+(6284,8888.88,now(), true),
+(6493,8888.88,now(), true),
+(6726,8888.88,now(), true),
+(6742,8888.88,now(), true),
+(7195,8888.88,now(), true),
+(7783,8888.88,now(), true),
+(7936,8888.88,now(), true),
+(8060,8888.88,now(), true),
+(8552,8888.88,now(), true),
+(9071,8888.88,now(), true),
+(9312,8888.88,now(), true),
+(9314,8888.88,now(), true),
+(9355,8888.88,now(), true),
+(9546,8888.88,now(), true),
+(9646,8888.88,now(), true);

@@ -22,6 +22,7 @@ public class MainController {
     public String getStartPage(Model model){
 
         model.addAttribute("categories", categoryService.findAllCategories());
+        model.addAttribute("subcategories", categoryService.findAllLastCategoryLevel());
         model.addAttribute("products", productFinalService.findAll());
         return "index";
     }

@@ -25,6 +25,15 @@ public class ProductFinalDto {
                 .build();
     }
 
+    public static ProductFinalDto toDto (ProductFinal entity, Float price) {
+        return ProductFinalDto.builder()
+                .name(entity.getName())
+                .price(price)
+                .descriptionShort(entity.getDescriptionShort())
+                .descriptionLong(entity.getDescriptionLong())
+                .build();
+    }
+
     public static ProductFinalDto toDto (ProductFinalPrice entity) {
         return ProductFinalDto.builder()
                 .name(entity.getProductFinal().getName())
