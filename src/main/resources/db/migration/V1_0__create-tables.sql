@@ -17,7 +17,7 @@ CREATE TABLE product_final_price (
   id int(11) NOT NULL AUTO_INCREMENT,
   product_final_id int(11) NOT NULL,
   price_no_vat float DEFAULT NULL,
-  vat_id int(11) NOT NULL,
+  vat_id int(11),
   price_final float DEFAULT NULL,
   creation_date datetime DEFAULT NULL,
   active boolean DEFAULT '0',

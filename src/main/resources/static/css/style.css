@@ -68,6 +68,13 @@
 }
 .def-card-width {
     width: 200px;
-    margin: 10px 0px;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.def-card-width-height {
+    width: 200px;
+    min-height: 350px;
+    margin: 10px 0;
     padding: 5px;
 }
