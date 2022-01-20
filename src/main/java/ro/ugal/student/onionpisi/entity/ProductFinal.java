@@ -14,6 +14,7 @@ public class ProductFinal implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String uuid;
     private String name;
     private String descriptionShort;
     private String descriptionLong;

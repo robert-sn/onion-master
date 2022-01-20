@@ -37,5 +37,4 @@ public class CategoryService {
         return categoryRepository.findAllByCategoryId(category.getId()).isEmpty() ? false : true;
     }
 
-
 }

@@ -46,6 +46,14 @@
     margin-top: 15px;
 }
 
+.def-card-img-details {
+    width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
 
 .def-card-body {
     margin-left: 10px;
