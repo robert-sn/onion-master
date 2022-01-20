@@ -54,16 +54,22 @@ public class ShoppingCartService {
 
     public List<CartProductsDTO> findCartProducts (String cartKey) {
 
-        return cartProductsRepository.findAllByShoppingCartUuid(cartKey).stream().map(c -> {
-            ProductFinal productFinal = productFinalRepository.findByUuid(c.getProductFinalUuid()).get();
-            ProductFinalPrice productPrice = productFinalPriceRepository.findByProductFinalId(productFinal.getId());
-            return CartProductsDTO.builder()
-                    .name(productFinal.getName())
-                    .price(productPrice.getPriceFinal())
-                    .quantity(c.getQuantity())
-                    .value(BigDecimal.valueOf(productPrice.getPriceFinal() * c.getQuantity()).floatValue())
-                    .build();
-        }).collect(Collectors.toList());
+        return cartProductsRepository.findAllByShoppingCartUuid(cartKey).stream()
+                .filter(c -> c.getQuantity() > 0)
+                .map(c -> {
+                    ProductFinal productFinal = productFinalRepository.findByUuid(c.getProductFinalUuid()).get();
+                    ProductFinalPrice productPrice = productFinalPriceRepository
+                            .findByProductFinalId(productFinal.getId());
+
+                    return CartProductsDTO.builder()
+                            .name(productFinal.getName())
+                            .productUuid(productFinal.getUuid())
+                            .price(productPrice.getPriceFinal())
+                            .quantity(c.getQuantity())
+                            .value(BigDecimal.valueOf(productPrice.getPriceFinal() * c.getQuantity()).floatValue())
+                            .build();
+                })
+                .collect(Collectors.toList());
     }
 
     public void addProductToShoppingCart(String cartKey, String productUuid) {
@@ -91,9 +97,19 @@ public class ShoppingCartService {
             }
         }
 
+    }
+    public void removeProductFromShoppingCart(String cartKey, String productUuid) {
 
+        Optional<CartProducts> cartProducts = cartProductsRepository
+                .findCartProductsByShoppingCartUuidAndProductFinalUuid(cartKey, productUuid);
 
+        log.info("Product [{}] exist in cart [{}], [{}] times", cartKey, productUuid, cartProducts.get().getQuantity());
+        if (cartProducts.isPresent() && cartProducts.get().getQuantity() > 0) {
 
+            cartProducts.get().setQuantity(cartProducts.get().getQuantity() - 1);
+            cartProductsRepository.save(cartProducts.get());
+            log.info("Product [{}] exist in cart [{}], [{}] times", cartKey, productUuid, cartProducts.get().getQuantity());
+        }
 
     }
 }
