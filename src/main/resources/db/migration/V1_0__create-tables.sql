@@ -72,12 +72,10 @@ CREATE TABLE shopping_cart (
 
 CREATE TABLE cart_products (
     id int(11) NOT NULL AUTO_INCREMENT,
-    shopping_cart_id int(11) NOT NULL,
-    product_final_id varchar(128),
-    quantity datetime DEFAULT 1,
-    PRIMARY KEY (id),
-    FOREIGN KEY (shopping_cart_id) REFERENCES shopping_cart (id),
-    FOREIGN KEY (product_final_id) REFERENCES product_final (id)
+    shopping_cart_uuid varchar(128) NOT NULL,
+    product_final_uuid varchar(128) NOT NULL,
+    quantity int(11) DEFAULT 1,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE user_cart (

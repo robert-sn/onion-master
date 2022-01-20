@@ -1,30 +1,48 @@
 package ro.ugal.student.onionpisi.web.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import ro.ugal.student.onionpisi.entity.CartProducts;
+import ro.ugal.student.onionpisi.entity.dto.CartProductsDTO;
 import ro.ugal.student.onionpisi.entity.service.CategoryService;
 import ro.ugal.student.onionpisi.entity.service.ProductFinalService;
+import ro.ugal.student.onionpisi.entity.service.ShoppingCartService;
+
+import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.DoubleStream;
 
 @Controller
+@Slf4j
 public class MainController {
 
     private CategoryService categoryService;
     private ProductFinalService productFinalService;
+    private ShoppingCartService shoppingCartService;
 
+    @Autowired
     public MainController(CategoryService categoryService,
-                          ProductFinalService productFinalService) {
+                          ProductFinalService productFinalService,
+                          ShoppingCartService shoppingCartService) {
         this.categoryService = categoryService;
         this.productFinalService = productFinalService;
+        this.shoppingCartService = shoppingCartService;
     }
 
     @GetMapping(path = "")
-    public String getStartPage(Model model){
+    public String getStartPage(Model model, HttpSession session){
 
-        model.addAttribute("categories", categoryService.findAllCategories());
-        model.addAttribute("subcategories", categoryService.findAllLastCategoryLevel());
-        model.addAttribute("products", productFinalService.findAll());
+        handleShoppingCart(session);
+        handleMainPageAttributes(model);
+
         return "index";
     }
 
@@ -43,9 +61,40 @@ public class MainController {
         return "product-details";
     }
     @GetMapping(path = "/shopping-cart")
-    public String shoppingCart(Model model) {
+    public String shoppingCart(HttpSession session, Model model) {
+
+        if(session.isNew()) {
+            return "redirect:/";
+        }
+        String cartKey = String.valueOf(session.getAttribute("cartKey"));
+        List<CartProductsDTO> cartProductsList = shoppingCartService.findCartProducts(cartKey);
+
+        log.info("This user has [{}] products in his cart", cartProductsList);
+
+        BigDecimal totalValue = new BigDecimal(cartProductsList.stream()
+                .flatMapToDouble(c -> DoubleStream.of(c.getValue())).sum());
+
+        model.addAttribute("cartProducts", cartProductsList);
+        model.addAttribute("totalValue", totalValue.floatValue());
 
         return "shopping-cart";
+    }
+
+    private void handleShoppingCart(HttpSession session) {
+        if (session.isNew()) {
+            String cartKey = UUID.randomUUID().toString();
+            log.info("Generated cartKey for this session is [{}]", cartKey);
+            session.setAttribute("cartKey", cartKey);
+            shoppingCartService.saveShoppingCartKey(cartKey);
+        } else {
+            log.info("Existing cartKey for this session is [{}]", session.getAttribute("cartKey"));
+        }
+    }
+
+    private void handleMainPageAttributes(Model model) {
+        model.addAttribute("categories", categoryService.findAllCategories());
+        model.addAttribute("subcategories", categoryService.findAllLastCategoryLevel());
+        model.addAttribute("products", productFinalService.findAll());
     }
 
 }
