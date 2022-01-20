@@ -12,13 +12,9 @@ public class CartProducts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
-    @JoinColumn(name = "shopping_cart_id")
-    private ShoppingCart shoppingCart;
+    private String shoppingCartUuid;
 
-    @OneToOne
-    @JoinColumn(name = "product_final_id")
-    private ProductFinal productFinal;
+    private String productFinalUuid;
 
     private Integer quantity;
 
