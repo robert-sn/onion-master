@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 @Builder
 public class ProductFinalDto {
 
+    private String uuid;
     private String name;
     private String descriptionShort;
     private String descriptionLong;
@@ -19,6 +20,7 @@ public class ProductFinalDto {
 
     public static ProductFinalDto toDto (ProductFinal entity) {
         return ProductFinalDto.builder()
+                .uuid(entity.getUuid())
                 .name(entity.getName())
                 .descriptionShort(entity.getDescriptionShort())
                 .descriptionLong(entity.getDescriptionLong())
@@ -27,6 +29,7 @@ public class ProductFinalDto {
 
     public static ProductFinalDto toDto (ProductFinal entity, Float price) {
         return ProductFinalDto.builder()
+                .uuid(entity.getUuid())
                 .name(entity.getName())
                 .price(price)
                 .descriptionShort(entity.getDescriptionShort())

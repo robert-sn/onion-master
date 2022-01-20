@@ -13,7 +13,7 @@
                 <div class="def-card-body">
                   <span class="def-card-name" th:text="${product.name}">Masina de spalat rufe frontala BEKO WUE 8736 XN, HomeWhiz, AquaTech, 8 kg, 1400rpm, Clasa A, alb</span>
                   <span class="def-card-price" th:text="${product.price}">8888,99 Lei</span>
-                  <a class="def-card-add-cart" href="#" >Go somewhere</a>
+                  <a class="def-card-add-cart" th:href="@{/product/details/}+${product.uuid}">Detalii</a>
                 </div>
               </div>
             </div>

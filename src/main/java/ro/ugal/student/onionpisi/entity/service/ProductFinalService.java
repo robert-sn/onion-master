@@ -33,4 +33,10 @@ public class ProductFinalService {
                 .collect(Collectors.toList());
     }
 
+    public ProductFinalDto findByUuid(String productUuid) {
+        ProductFinal productFinal = productFinalRepository.findByUuid(productUuid).get();
+        return ProductFinalDto.toDto(productFinal,
+                productFinalPriceRepository.findByProductFinalId(productFinal.getId()).getPriceFinal());
+    }
+
 }

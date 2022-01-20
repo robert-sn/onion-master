@@ -1,5 +1,6 @@
 CREATE TABLE product_final (
   id int(11) NOT NULL AUTO_INCREMENT,
+  uuid varchar(128),
   name varchar(3500) NOT NULL,
   description_short varchar(3200) DEFAULT NULL,
   description_long varchar(6400) DEFAULT NULL,
@@ -56,8 +57,36 @@ CREATE TABLE user_role (
 );
 
 CREATE TABLE user_user_role (
-    user_id int(11) NOT NULL AUTO_INCREMENT,
+    user_id int(11) NOT NULL,
     user_role_id varchar(500) DEFAULT NULL,
     FOREIGN KEY (user_id) REFERENCES user (id),
     FOREIGN KEY (user_role_id) REFERENCES user_role (id)
 );
+
+CREATE TABLE shopping_cart (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    uuid varchar(128),
+    timestamp datetime DEFAULT 1,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE cart_products (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    shopping_cart_id int(11) NOT NULL,
+    product_final_id varchar(128),
+    quantity datetime DEFAULT 1,
+    PRIMARY KEY (id),
+    FOREIGN KEY (shopping_cart_id) REFERENCES shopping_cart (id),
+    FOREIGN KEY (product_final_id) REFERENCES product_final (id)
+);
+
+CREATE TABLE user_cart (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    shopping_cart_id int(11) NOT NULL,
+    user_id varchar(128),
+    active tinyint DEFAULT 0,
+    PRIMARY KEY (id),
+    FOREIGN KEY (shopping_cart_id) REFERENCES shopping_cart (id),
+    FOREIGN KEY (user_id) REFERENCES product_final (id)
+);
+
