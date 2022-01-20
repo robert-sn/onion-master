@@ -60,25 +60,6 @@ public class MainController {
 
         return "product-details";
     }
-    @GetMapping(path = "/shopping-cart")
-    public String shoppingCart(HttpSession session, Model model) {
-
-        if(session.isNew()) {
-            return "redirect:/";
-        }
-        String cartKey = String.valueOf(session.getAttribute("cartKey"));
-        List<CartProductsDTO> cartProductsList = shoppingCartService.findCartProducts(cartKey);
-
-        log.info("This user has [{}] products in his cart", cartProductsList);
-
-        BigDecimal totalValue = new BigDecimal(cartProductsList.stream()
-                .flatMapToDouble(c -> DoubleStream.of(c.getValue())).sum());
-
-        model.addAttribute("cartProducts", cartProductsList);
-        model.addAttribute("totalValue", totalValue.floatValue());
-
-        return "shopping-cart";
-    }
 
     private void handleShoppingCart(HttpSession session) {
         if (session.isNew()) {

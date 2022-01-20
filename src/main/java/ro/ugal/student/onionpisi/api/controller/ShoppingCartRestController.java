@@ -9,11 +9,11 @@ import ro.ugal.student.onionpisi.entity.service.ShoppingCartService;
 
 @RestController
 @RequestMapping("/api/shopping-cart")
-public class ShoppingCartController {
+public class ShoppingCartRestController {
 
     private ShoppingCartService shoppingCartService;
 
-    public ShoppingCartController(ShoppingCartService shoppingCartService) {
+    public ShoppingCartRestController(ShoppingCartService shoppingCartService) {
         this.shoppingCartService = shoppingCartService;
     }
 
